@@ -6,7 +6,6 @@ compatibility: Requires git. The PR lookup step uses the GitHub CLI (gh); skip o
 allowed-tools: Bash(git:*) Bash(gh:*) Read
 user-invocable: true
 when_to_use: "Trigger phrases: 'prepare context', 'orient me on this branch', 'what does this PR do', 'load branch context', 'before we start'."
-model: claude-haiku-4-5-20251001
 metadata:
   author: jnsahaj
   version: "1.0"
