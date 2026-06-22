@@ -13,7 +13,7 @@ A proper repository was created around it for a few practical reasons:
 - **Installable via standard tooling** — `gh skill install` and `npx skills add` work against GitHub repos, not gists
 - **Versioned and updatable** — consumers can pin to a release and run `gh skill update --all` to stay current
 - **Agent-provider-agnostic** — the spec frontmatter (`allowed-tools`, `compatibility`) makes the skill portable across Claude Code, Cursor, Codex, Copilot, and other Agent-Skills-compatible runtimes
-- **Claude Code enhancements** — Claude Code-specific fields (`model`, `when_to_use`, `user-invocable`) improve the experience on Claude without affecting other runtimes, which simply ignore unknown frontmatter
+- **Claude Code enhancements** — Claude Code-specific fields (`when_to_use`, `user-invocable`) improve the experience on Claude without affecting other runtimes, which simply ignore unknown frontmatter
 - **Discoverable** — shows up on [skills.sh](https://www.skills.sh) and in agent skill registries; a gist does not
 
 ## What it does
@@ -27,13 +27,14 @@ A proper repository was created around it for a few practical reasons:
 
 ## Claude Code enhancements
 
-When used in Claude Code, three extra frontmatter fields activate automatically and are ignored by all other runtimes:
+When used in Claude Code, two extra frontmatter fields activate automatically and are ignored by all other runtimes:
 
 | Field | Value | Effect |
 | :---- | :---- | :----- |
-| `model` | `claude-haiku-4-5-20251001` | Uses a fast model — this skill is read-only analysis, not complex reasoning |
 | `user-invocable` | `true` | Exposes `/prepare-branch-context` as a slash command |
 | `when_to_use` | trigger phrases | Helps Claude auto-detect when to invoke the skill from natural-language prompts |
+
+This skill is read-only analysis — if you want to run it on a lighter model, set `model: haiku` (or whichever alias your Claude Code version accepts) in your own local copy.
 
 ## Install
 
